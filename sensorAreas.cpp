@@ -9,9 +9,6 @@ long durationR;
 long dL;            // distance measurements deduced
 long dR;
 
-long x;             // x,y of triangulation
-long y;
-
 void setup()
 {
     pinMode(echoPinL, INPUT);
@@ -20,7 +17,7 @@ void setup()
     pinMode(trigPinR, OUTPUT);
 
     Serial.begin(9600);
-    Serial.println("US triangulation: ")
+    Serial.println("US area watching: ")
 }
 
 void loop()
@@ -40,16 +37,14 @@ void loop()
     durationR = pulseIn(echoPinR, HIGH);
     dR = durationR * 0.034 / 2;
 
-    x = ((dL**2) - (dR**2)) / 44;
-    y = ((dL**2) - 121 + 0.5*((dR**2) - (dL**2)) - (x**2)) ** 0.5;
-
-    if (y < 120)
+    ratio = dL/dR;
+    if (dL <= 120 or dR <= 120)
     {
-        if (-10 < x < 10)
+        if (0.8 < ratio < 1.2)
         {
             // go straight on
         }
-        else if (x <= -10)
+        else if (ratio > 1.2)
         {
             // turn slight right (repeated until can go straight on)
         }
