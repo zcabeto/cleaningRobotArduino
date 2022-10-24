@@ -24,7 +24,7 @@ void setup()
 
 void loop()
 {
-    digitialWrite(8, HIGH);         // turns on 8 when code runs
+    digitalWrite(8, HIGH);         // turns on 8 when code runs
     dial = analogRead(A1);
     direc = map(dial, 0, 1023, -50, 50);
         // -50 = <-   0 = ^     50 = ->

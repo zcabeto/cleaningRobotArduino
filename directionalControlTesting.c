@@ -20,7 +20,7 @@ void setup()
 
 void loop()
 {
-    digitialWrite(8, HIGH);         // turns on 8 when code runs
+    digitalWrite(8, HIGH);         // turns on 8 when code runs
     dial = analogRead(A1);
     direc = map(dial, 0, 1023, 0, 100);
 
@@ -28,39 +28,39 @@ void loop()
     {
         if (direc <= 15)        // turn left on spot
         {
-            digitialWrite(1,HIGH);
-            digitialWrite(2,LOW);
-            digitialWrite(3,LOW);
-            digitialWrite(4,HIGH);
+            digitalWrite(1,HIGH);
+            digitalWrite(2,LOW);
+            digitalWrite(3,LOW);
+            digitalWrite(4,HIGH);
         }
         else if (direc >= 75)   // turn right on spot
         {
-            digitialWrite(1,LOW);
-            digitialWrite(2,HIGH);
-            digitialWrite(3,HIGH);
-            digitialWrite(4,LOW);
+            digitalWrite(1,LOW);
+            digitalWrite(2,HIGH);
+            digitalWrite(3,HIGH);
+            digitalWrite(4,LOW);
         }
         else                    // straight forward
         {
-            digitialWrite(1,HIGH);
-            digitialWrite(2,HIGH);
-            digitialWrite(3,LOW);
-            digitialWrite(4,LOW);
+            digitalWrite(1,HIGH);
+            digitalWrite(2,HIGH);
+            digitalWrite(3,LOW);
+            digitalWrite(4,LOW);
         }
     }
     else if (digitalRead(A3)==HIGH)  // backward movement
     {
-        digitialWrite(1,LOW);
-        digitialWrite(2,LOW);
-        digitialWrite(3,HIGH);
-        digitialWrite(4,HIGH);
+        digitalWrite(1,LOW);
+        digitalWrite(2,LOW);
+        digitalWrite(3,HIGH);
+        digitalWrite(4,HIGH);
     }
     else                            // no movement
     {
-        digitialWrite(1,LOW);
-        digitialWrite(2,LOW);
-        digitialWrite(3,LOW);
-        digitialWrite(4,LOW);
+        digitalWrite(1,LOW);
+        digitalWrite(2,LOW);
+        digitalWrite(3,LOW);
+        digitalWrite(4,LOW);
     }
 
     
