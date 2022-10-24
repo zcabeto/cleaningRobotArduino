@@ -1,6 +1,3 @@
-#include "Grove_I2C_Motor_Driver.h"
-#define I2C_Address 0x0f
-
 // this program is a generalised version of the 4 wheel control
 // it uses 4 lights to signify different servo motor controls to test before running in reality
 
